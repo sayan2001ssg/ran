@@ -123,3 +123,22 @@ a:hover {
         transform: translateY(-15px);
     }
 }
+
+/* Style for the surprise button */
+.surprise-button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff007f; /* Pink background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.surprise-button:hover {
+    background-color: #ff0055; /* Darker pink on hover */
+}
+

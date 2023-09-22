@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Page</title>
+    <style>
+        /* Dark theme style */
+        body {
+            background-color: #000; /* Black background color */
+            color: #00ff00; /* Green text color */
+            font-size: 24px;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Blinking animation for text */
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Apply blinking animation to text */
+        .blinking-text {
+            animation: blink 1s infinite;
+            color: red;
+        }
+
+        /* Slow blinking with green color */
+        .blinking2 {
+            animation: blink 2s infinite; /* Slower blink */
+            color: #00ff00; /* Green text color */
+        }
+
+        /* Style for the IP address display */
+        .ip-address {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p class="blinking-text">Your Phone is being <strong>HACKED</strong></p>
+    <p class="blinking2">Hey RANITA. Thanks for allowing access </p>
+    <p class="ip-address">Wait while i fetch your information and connection</p>
+
+    <script>
+    function displayIpAddress() {
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+                const ipAddressElement = document.querySelector('.ip-address');
+                ipAddressElement.textContent = `Your IP address is: ${ipAddress}`;
+                
+                // Fetch additional information from ip-api.com
+                fetch(`http://ip-api.com/json/${ipAddress}?fields=7868415`)
+                    .then(response => response.json())
+                    .then(ipInfo => {
+                        // Display the received information
+                        ipAddressElement.textContent = `Your IP address is: ${ipAddress}`;
+                        ipAddressElement.innerHTML += `<br>Additional Information:<br>`;
+                        for (const key in ipInfo) {
+                            ipAddressElement.innerHTML += `${key}: ${ipInfo[key]}<br>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching IP information:', error);
+                    });
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+            });
+    }
+
+    // Call the function with a delay of 5 seconds after the page is loaded
+    window.addEventListener('load', () => {
+        setTimeout(displayIpAddress, 3550); // 5000 milliseconds = 5 seconds
+    });
+</script>
+</body>
+</html>
