@@ -1,0 +1,125 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+.greeting {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+    color: #ff007f; /* Pink color for greeting */
+}
+
+.image-description {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+    color: #0099ff; /* Blue color for image description */
+}
+
+/* Image styles */
+.resized-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Paragraph styles */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+/* Link styles */
+a {
+    color: #ff007f; /* Pink color for links */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ff0055; /* Slightly darker pink on hover */
+}
+
+/* Button styles */
+.continue-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #0099ff; /* Blue background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.continue-button:hover {
+    background-color: #0077cc; /* Darker blue on hover */
+}
+
+/* Thank You Page styles */
+.thankyou-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #0099ff; /* Blue background color */
+    color: white; /* White text color */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thankyou-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: pink;
+    animation: bounce 1s ease infinite; /* Bouncing animation */
+}
+
+.thankyou-message {
+    font-size: 24px;
+}
+
+.back-button {
+    background-color: #ff007f; /* Pink background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.back-button:hover {
+    background-color: #ff0055; /* Darker pink on hover */
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
