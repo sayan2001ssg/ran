@@ -45,41 +45,30 @@
 <body>
     <p class="blinking-text">Your Phone is being <strong>HACKED</strong></p>
     <p class="blinking2">Hey RANITA. Thanks for allowing access </p>
-    <p class="ip-address">Wait while i fetch your information and connection</p>
+    <p class="ip-info">Wait while i fetch your information and connection</p>
 
     <script>
-    function displayIpAddress() {
-        fetch('https://api64.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const ipAddress = data.ip;
-                const ipAddressElement = document.querySelector('.ip-address');
-                ipAddressElement.textContent = `Your IP address is: ${ipAddress}`;
-                
-                // Fetch additional information from ip-api.com
-                fetch(`http://ip-api.com/json/${ipAddress}?fields=7868415`)
-                    .then(response => response.json())
-                    .then(ipInfo => {
-                        // Display the received information
-                        ipAddressElement.textContent = `Your IP address is: ${ipAddress}`;
-                        ipAddressElement.innerHTML += `<br>Additional Information:<br>`;
-                        for (const key in ipInfo) {
-                            ipAddressElement.innerHTML += `${key}: ${ipInfo[key]}<br>`;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching IP information:', error);
-                    });
-            })
-            .catch(error => {
-                console.error('Error fetching IP address:', error);
-            });
-    }
+        // Function to fetch IP information and display it
+        function displayIpInformation() {
+            fetch('https://api.ipgeolocation.io/ipgeo?apiKey=4b2da29c2c2e4fa88d880892caf2be6e')
+                .then(response => response.json())
+                .then(ipInfo => {
+                    const ipInfoElement = document.querySelector('.ip-info');
+                    // Display the received IP information
+                    ipInfoElement.innerHTML = `IP Information:<br>`;
+                    for (const key in ipInfo) {
+                        ipInfoElement.innerHTML += `${key}: ${ipInfo[key]}<br>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching IP information:', error);
+                });
+        }
 
-    // Call the function with a delay of 5 seconds after the page is loaded
-    window.addEventListener('load', () => {
-        setTimeout(displayIpAddress, 3550); // 5000 milliseconds = 5 seconds
-    });
-</script>
+        // Call the function with a delay of 5 seconds after the page is loaded
+        window.addEventListener('load', () => {
+            setTimeout(displayIpInformation, 2000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </body>
 </html>
